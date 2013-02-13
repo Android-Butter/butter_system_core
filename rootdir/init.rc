@@ -47,7 +47,7 @@ loglevel 3
 
 # Right now vendor lives on the same filesystem as system,
 # but someday that may change.
-    symlink /system/vendor/lib /vendor/lib
+    symlink /system/vendor /vendor
 
 # Create cgroup mount point for cpu accounting
     mkdir /acct
@@ -299,6 +299,8 @@ on boot
     chown system system /sys/devices/system/cpu/cpufreq/ondemand/boostpulse
     chown system system /sys/devices/system/cpu/cpufreq/interactive/input_boost
     chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/input_boost
+    chown system system /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
+    chmod 0660 /sys/devices/system/cpu/cpufreq/interactive/boostpulse_duration
 
     # Assume SMP uses shared cpufreq policy for all CPUs
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
